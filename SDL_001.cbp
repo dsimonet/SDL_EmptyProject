@@ -7,9 +7,9 @@
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Debug">
-				<Option output="bin/Debug/Battle_debug" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Debug/SDL_001" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Debug/" />
-				<Option type="0" />
+				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
@@ -17,9 +17,9 @@
 				</Compiler>
 			</Target>
 			<Target title="Release">
-				<Option output="bin/Release/Battle" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Release/SDL_001" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Release/" />
-				<Option type="1" />
+				<Option type="0" />
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
@@ -27,53 +27,6 @@
 				<Linker>
 					<Add option="-s" />
 				</Linker>
-			</Target>
-			<Target title="Debug_sdl">
-				<Option output="bin/Debug/SDL_test" prefix_auto="1" extension_auto="1" />
-				<Option object_output="obj/Debug/" />
-				<Option type="1" />
-				<Option compiler="gcc" />
-				<Option use_console_runner="0" />
-				<Compiler>
-					<Add option="-g" />
-					<Add directory="src/display" />
-				</Compiler>
-			</Target>
-			<Target title="Debug_core">
-				<Option output="bin/Debug/Core_test" prefix_auto="1" extension_auto="1" />
-				<Option object_output="obj/Debug/" />
-				<Option type="1" />
-				<Option compiler="gcc" />
-				<Compiler>
-					<Add option="-g" />
-					<Add directory="src/core" />
-				</Compiler>
-			</Target>
-			<Target title="Debug_com">
-				<Option output="bin/Debug/Com_test" prefix_auto="1" extension_auto="1" />
-				<Option object_output="obj/Debug/" />
-				<Option type="1" />
-				<Option compiler="gcc" />
-				<Option use_console_runner="0" />
-				<Compiler>
-					<Add option="-g" />
-				</Compiler>
-			</Target>
-			<Target title="nanoGUI">
-				<Option output="bin/Debug/nanoGuiTest" prefix_auto="1" extension_auto="1" />
-				<Option type="1" />
-				<Option compiler="gcc" />
-				<Compiler>
-					<Add option="-std=c++11" />
-					<Add option="-std=c11" />
-					<Add directory="src" />
-				</Compiler>
-				<Linker>
-					<Add library="../../../../Program Files (x86)/CodeBlocks/MinGW/lib/libcomdlg32.a" />
-				</Linker>
-				<Environment>
-					<Variable name="_WIN32" value="" />
-				</Environment>
 			</Target>
 		</Build>
 		<Compiler>
@@ -88,283 +41,9 @@
 			<Add directory="lib/SDL2_image-devel-2.0.5-mingw.tar/SDL2_image-2.0.5/i686-w64-mingw32/lib" />
 			<Add directory="lib/SDL2_ttf-devel-2.0.15-mingw.tar/SDL2_ttf-2.0.15/i686-w64-mingw32/lib" />
 		</Linker>
-		<Unit filename="main.cpp">
-			<Option target="Debug" />
-			<Option target="Release" />
-		</Unit>
-		<Unit filename="src/core/Boat.cpp">
-			<Option target="Debug_com" />
-			<Option target="Debug_core" />
-		</Unit>
-		<Unit filename="src/core/Boat.h">
-			<Option target="Debug_com" />
-			<Option target="Debug_core" />
-		</Unit>
-		<Unit filename="src/core/Map.cpp">
-			<Option target="Debug_com" />
-			<Option target="Debug_core" />
-		</Unit>
-		<Unit filename="src/core/Map.h">
-			<Option target="Debug_com" />
-			<Option target="Debug_core" />
-		</Unit>
-		<Unit filename="src/display/Boat.cpp">
-			<Option target="Debug_com" />
-			<Option target="Debug_sdl" />
-			<Option target="Debug" />
-		</Unit>
-		<Unit filename="src/display/Boat.h">
-			<Option target="Debug_com" />
-			<Option target="Debug_sdl" />
-			<Option target="Debug" />
-		</Unit>
-		<Unit filename="src/display/Game.cpp">
-			<Option target="Debug_com" />
-			<Option target="Debug_sdl" />
-			<Option target="Debug" />
-		</Unit>
-		<Unit filename="src/display/Game.h">
-			<Option target="Debug_com" />
-			<Option target="Debug_sdl" />
-			<Option target="Debug" />
-		</Unit>
-		<Unit filename="src/display/Table.cpp">
-			<Option target="Debug_sdl" />
-			<Option target="Debug" />
-		</Unit>
-		<Unit filename="src/display/Table.h">
-			<Option target="Debug_sdl" />
-			<Option target="Debug" />
-		</Unit>
-		<Unit filename="src/display/display_type.h">
-			<Option target="Debug_sdl" />
-			<Option target="Debug" />
-		</Unit>
-		<Unit filename="src/display/util.cpp">
-			<Option target="Debug_sdl" />
-			<Option target="Debug" />
-		</Unit>
-		<Unit filename="src/display/util.h">
-			<Option target="Debug_sdl" />
-			<Option target="Debug" />
-		</Unit>
-		<Unit filename="src/sdlgui/button.cpp">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/button.h">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/checkbox.cpp">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/checkbox.h">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/colorpicker.cpp">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/colorpicker.h">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/colorwheel.cpp">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/colorwheel.h">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/combobox.cpp">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/combobox.h">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/common.cpp">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/common.h">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/dropdownbox.cpp">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/dropdownbox.h">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/entypo.h">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/fontstash.h">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/formhelper.h">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/graph.cpp">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/graph.h">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/imagepanel.cpp">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/imagepanel.h">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/imageview.cpp">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/imageview.h">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/label.cpp">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/label.h">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/layout.cpp">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/layout.h">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/loadimages.cpp">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/messagedialog.cpp">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/messagedialog.h">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/nanort.h">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/nanovg.c">
-			<Option compilerVar="CC" />
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/nanovg.h">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/nanovg_rt.h">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/popup.cpp">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/popup.h">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/popupbutton.cpp">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/popupbutton.h">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/progressbar.cpp">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/progressbar.h">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/resources.cpp">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/resources.h">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/screen.cpp">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/screen.h">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/sdlguii.h">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/slider.cpp">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/slider.h">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/stackedwidget.cpp">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/stackedwidget.h">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/stb_image.h">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/stb_truetype.h">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/switchbox.cpp">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/switchbox.h">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/tabheader.cpp">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/tabheader.h">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/tabwidget.cpp">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/tabwidget.h">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/textbox.cpp">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/textbox.h">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/theme.cpp">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/theme.h">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/toolbutton.h">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/vscrollpanel.cpp">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/vscrollpanel.h">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/widget.cpp">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/widget.h">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/window.cpp">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="src/sdlgui/window.h">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="test/sdl_gui_example1.cpp">
-			<Option target="nanoGUI" />
-		</Unit>
-		<Unit filename="test/test_main_com.cpp">
-			<Option target="Debug_com" />
-		</Unit>
-		<Unit filename="test/test_main_core.cpp">
-			<Option target="Debug_core" />
-		</Unit>
-		<Unit filename="test/test_main_sdl.cpp">
-			<Option target="Debug_sdl" />
-		</Unit>
+		<Unit filename="src/main.cpp" />
+		<Unit filename="src/util.cpp" />
+		<Unit filename="src/util.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
