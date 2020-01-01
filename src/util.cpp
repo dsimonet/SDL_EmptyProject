@@ -43,3 +43,16 @@ SDL_Texture * loadTexture(SDL_Renderer * _renderer, string path ) {
     return newTexture;
 }
 
+void printHere(SDL_Renderer * gRenderer, char * t, int posX, int posY){
+	SDL_Color c = {0,0,0, 0xff} ;
+
+	std::stringstream infoText;
+	infoText.str("");
+	infoText << t ;
+	TTF_Font * gFont;
+	gFont = TTF_OpenFont(GetRelativePath("\\font\\consola.ttf"), 12 );
+	LTexture tex(gRenderer, gFont);
+	tex.loadFromRenderedText(infoText.str().c_str(), c);
+	tex.render(20, 20);
+}
+
