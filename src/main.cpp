@@ -4,12 +4,15 @@ and may not be redistributed without written permission.*/
 //General lib
 #include <iostream>
 #include <string>
+#include <sstream>
 
 //Display lib
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
 #include <windows.h>
+
+#include "LText.h"
 #include "util.h"
 
 
@@ -37,6 +40,11 @@ SDL_Renderer* gRenderer = NULL;
 
 //Current displayed texture
 SDL_Texture* gTexture = NULL;
+
+TTF_Font * tFont = NULL;
+
+//text generated texture;
+LTexture * tTexture = NULL;
 
 bool init()
 {
@@ -67,7 +75,7 @@ bool init()
 		else
 		{
 			//Create renderer for window
-			gRenderer = SDL_CreateRenderer( gWindow, -1, SDL_RENDERER_ACCELERATED );
+			gRenderer = SDL_CreateRenderer( gWindow, -1, SDL_RENDERER_PRESENTVSYNC );
 			if( gRenderer == NULL )
 			{
 				printf( "Renderer could not be created! SDL Error: %s\n", SDL_GetError() );
@@ -86,6 +94,19 @@ bool init()
 					success = false;
 				}
 			}
+
+			//Initialize SDL_ttf
+            if( TTF_Init() == -1 ) {
+                printf( "SDL_ttf could not initialize! SDL_ttf Error: %s\n", TTF_GetError() );
+                success = false;
+            }
+
+            //Open the font
+            tFont = TTF_OpenFont( GetRelativePath("\\font\\consola.ttf"), 12 );
+            if( tFont == NULL ) {
+                printf( "Failed to load lazy font! SDL_ttf Error: %s\n", TTF_GetError() );
+                success = false;
+            }
 		}
 	}
 
@@ -104,6 +125,9 @@ bool loadMedia()
 		printf( "Failed to load texture image!\n" );
 		success = false;
 	}
+
+	//Create font texture
+	tTexture = new LTexture(gRenderer, tFont);
 
 	return success;
 }
@@ -124,33 +148,7 @@ void close()
 	IMG_Quit();
 	SDL_Quit();
 }
-//
-//SDL_Texture* loadTexture( std::string path )
-//{
-//	//The final texture
-//	SDL_Texture* newTexture = NULL;
-//
-//	//Load image at specified path
-//	SDL_Surface* loadedSurface = IMG_Load( path.c_str() );
-//	if( loadedSurface == NULL )
-//	{
-//		printf( "Unable to load image %s! SDL_image Error: %s\n", path.c_str(), IMG_GetError() );
-//	}
-//	else
-//	{
-//		//Create texture from surface pixels
-//        newTexture = SDL_CreateTextureFromSurface( gRenderer, loadedSurface );
-//		if( newTexture == NULL )
-//		{
-//			printf( "Unable to create texture from %s! SDL Error: %s\n", path.c_str(), SDL_GetError() );
-//		}
-//
-//		//Get rid of old loaded surface
-//		SDL_FreeSurface( loadedSurface );
-//	}
-//
-//	return newTexture;
-//}
+
 
 int main( int argc, char* args[] )
 {
@@ -192,6 +190,13 @@ int main( int argc, char* args[] )
 
 				//Render texture to screen
 				SDL_RenderCopy( gRenderer, gTexture, NULL, NULL );
+
+				SDL_Color c = {0,255,0, 0xff} ;
+				std::stringstream infoText;
+				infoText.str("");
+				infoText << "Ticks:" << SDL_GetTicks() << "(ms)";
+				tTexture->loadFromRenderedText(infoText.str().c_str(), c);
+				tTexture->render(20, 20);
 
 				//Update screen
 				SDL_RenderPresent( gRenderer );
