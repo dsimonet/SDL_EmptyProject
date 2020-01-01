@@ -14,6 +14,7 @@ and may not be redistributed without written permission.*/
 
 #include "LText.h"
 #include "util.h"
+#include "Console.h"
 
 
 //Screen dimension constants
@@ -172,6 +173,8 @@ int main( int argc, char* args[] )
 			//Event handler
 			SDL_Event e;
 
+			Console con(gRenderer);
+
 			//While application is running
 			while( !quit )
 			{
@@ -198,8 +201,15 @@ int main( int argc, char* args[] )
 				tTexture->loadFromRenderedText(infoText.str().c_str(), c);
 				tTexture->render(20, 20);
 
+
+				std::cout << "Hello world" << std::endl;
+				std::cout << SDL_GetTicks() << std::endl;
+
+				con.draw();
+
 				//Update screen
 				SDL_RenderPresent( gRenderer );
+
 			}
 		}
 	}
