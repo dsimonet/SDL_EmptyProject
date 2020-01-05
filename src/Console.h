@@ -3,6 +3,9 @@
 
 #include <iostream>
 #include <sstream>
+#include <string.h>
+#include <vector>
+
 
 #include <SDL_ttf.h>
 #include "LText.h"
@@ -26,12 +29,14 @@ class Console
 		int numberOfLines;
 		int currentLine;
 
-		char ** buffer;
+		//char ** buffer;
+		vector<string> buffer;
 
 		LTexture * texture;
 
 		//Mthodes
 		void updateBuffer();
+		void pushLine();
 
 		//Setter
 		void SetConsole();

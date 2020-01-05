@@ -203,12 +203,15 @@ int main( int argc, char* args[] )
 
 
 				std::cout << "Hello world" << std::endl;
-				std::cout << SDL_GetTicks() << std::endl;
+				std::cout << "Line 2" << std::endl;
+				std::cout << "-xx-" << SDL_GetTicks() << std::endl << std::endl ;
 
 				con.draw();
 
 				//Update screen
 				SDL_RenderPresent( gRenderer );
+
+				SDL_Delay(250);
 
 			}
 		}

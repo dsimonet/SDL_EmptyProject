@@ -16,6 +16,7 @@
 					<Add option="-g" />
 					<Add directory="src/core" />
 					<Add directory="src/display" />
+					<Add directory="src" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -25,6 +26,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add directory="src" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -43,6 +45,10 @@
 			<Add directory="lib/SDL2_image-devel-2.0.5-mingw.tar/SDL2_image-2.0.5/i686-w64-mingw32/lib" />
 			<Add directory="lib/SDL2_ttf-devel-2.0.15-mingw.tar/SDL2_ttf-2.0.15/i686-w64-mingw32/lib" />
 		</Linker>
+		<Unit filename="src/Console.cpp" />
+		<Unit filename="src/Console.h" />
+		<Unit filename="src/LText.cpp" />
+		<Unit filename="src/LText.h" />
 		<Unit filename="src/main.cpp" />
 		<Unit filename="src/util.cpp" />
 		<Unit filename="src/util.h" />
