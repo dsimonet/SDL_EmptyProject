@@ -22,6 +22,7 @@ class Console
 	private:
 		TTF_Font * font;
 		SDL_Color textColor;
+		streambuf * old_buf;
 		stringstream newStream;
 		SDL_Renderer * gRenderer;
 
@@ -29,7 +30,6 @@ class Console
 		int numberOfLines;
 		int currentLine;
 
-		//char ** buffer;
 		vector<string> buffer;
 
 		LTexture * texture;

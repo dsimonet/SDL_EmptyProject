@@ -186,6 +186,9 @@ int main( int argc, char* args[] )
 					{
 						quit = true;
 					}
+					if(e.type == SDL_KEYDOWN){
+						cout << SDL_GetKeyName( e.key.keysym.sym )  << endl;
+					}
 				}
 
 				//Clear screen
@@ -201,10 +204,11 @@ int main( int argc, char* args[] )
 				tTexture->loadFromRenderedText(infoText.str().c_str(), c);
 				tTexture->render(20, 20);
 
-
-				std::cout << "Hello world" << std::endl;
-				std::cout << "Line 2" << std::endl;
-				std::cout << "-xx-" << SDL_GetTicks() << std::endl << std::endl ;
+				if( (SDL_GetTicks()/100)%10 == 0 ){
+					std::cout << "Hello world" << std::endl;
+					std::cout << "Line 2" << std::endl;
+					std::cout << "-xx-" << SDL_GetTicks() << std::endl << std::endl ;
+				}
 
 				con.draw();
 
